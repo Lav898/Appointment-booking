@@ -20,22 +20,24 @@ const DoctorDashboard = () => {
   };
 
   useEffect(() => {
-    const fetchAppointments = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5002/api/appointments/doctor', {
-          headers: { 'x-auth-token': token }
-        });
-        setAppointments(res.data);
-        setLoading(false);
-      } catch (err) {
-        setError('Failed to fetch appointments.');
-        setLoading(false);
-      }
-    };
-    fetchAppointments();
-    setDoctorInfo(myDoctorInfo); // Set the placeholder doctor info
-  }, []);
+  const fetchAppointments = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const res = await axios.get('http://localhost:5002/api/appointments/doctor', {
+        headers: { 'x-auth-token': token }
+      });
+      setAppointments(res.data);
+      setLoading(false);
+    } catch (err) {
+      setError('Failed to fetch appointments.');
+      setLoading(false);
+    }
+  };
+
+  fetchAppointments();
+  setDoctorInfo(myDoctorInfo); // Set the placeholder doctor info
+}, [myDoctorInfo]);
+
 
   const formatDate = (dateString) => {
     return new Intl.DateTimeFormat('en-US', {

@@ -26,10 +26,10 @@ const Footer = () => {
           <Col md={4} className="mb-3">
             <h5>Follow Us</h5>
             <div className="d-flex justify-content-center">
-              <a href="#" className="text-white mx-2"><FaFacebook size={24} /></a>
-              <a href="#" className="text-white mx-2"><FaTwitter size={24} /></a>
-              <a href="#" className="text-white mx-2"><FaLinkedin size={24} /></a>
-              <a href="#" className="text-white mx-2"><FaInstagram size={24} /></a>
+              <a href="https://www.facebook.com/" className="text-white mx-2"><FaFacebook size={24} /></a>
+              <a href="https://www.facebook.com/TwitterInc/" className="text-white mx-2"><FaTwitter size={24} /></a>
+              <a href="https://www.linkedin.com/" className="text-white mx-2"><FaLinkedin size={24} /></a>
+              <a href="https://www.instagram.com/" className="text-white mx-2"><FaInstagram size={24} /></a>
             </div>
           </Col>
         </Row>
