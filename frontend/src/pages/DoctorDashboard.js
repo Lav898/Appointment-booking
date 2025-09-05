@@ -3,41 +3,38 @@ import { Container, Card, Row, Col, Alert, Table, Spinner, Modal, Button } from 
 import axios from 'axios';
 import { FaUserMd, FaCalendarCheck, FaStethoscope } from 'react-icons/fa';
 
+const myDoctorInfo = {
+  name: 'Dr. John Smith',
+  specialty: 'General Physician',
+  experience: '15 years',
+  about: 'Dr. John Smith is a dedicated General Physician with a passion for providing comprehensive healthcare. With over 15 years of experience, he has developed a reputation for his patient-centered approach and commitment to medical excellence.',
+  contact: 'john.smith@example.com',
+};
+
 const DoctorDashboard = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showProfile, setShowProfile] = useState(false);
-  const [doctorInfo, setDoctorInfo] = useState({});
-
-  // Placeholder for doctor profile information
-  const myDoctorInfo = {
-    name: 'Dr. John Smith',
-    specialty: 'General Physician',
-    experience: '15 years',
-    about: 'Dr. John Smith is a dedicated General Physician with a passion for providing comprehensive healthcare. With over 15 years of experience, he has developed a reputation for his patient-centered approach and commitment to medical excellence.',
-    contact: 'john.smith@example.com',
-  };
+  const [doctorInfo, setDoctorInfo] = useState(myDoctorInfo);
 
   useEffect(() => {
-  const fetchAppointments = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5002/api/appointments/doctor', {
-        headers: { 'x-auth-token': token }
-      });
-      setAppointments(res.data);
-      setLoading(false);
-    } catch (err) {
-      setError('Failed to fetch appointments.');
-      setLoading(false);
-    }
-  };
+    const fetchAppointments = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const res = await axios.get('http://localhost:5002/api/appointments/doctor', {
+          headers: { 'x-auth-token': token }
+        });
+        setAppointments(res.data);
+        setLoading(false);
+      } catch (err) {
+        setError('Failed to fetch appointments.');
+        setLoading(false);
+      }
+    };
 
-  fetchAppointments();
-  setDoctorInfo(myDoctorInfo); // Set the placeholder doctor info
-}, [myDoctorInfo]);
-
+    fetchAppointments();
+  }, []); // ✅ empty dependency so it runs only once
 
   const formatDate = (dateString) => {
     return new Intl.DateTimeFormat('en-US', {
@@ -122,7 +119,7 @@ const DoctorDashboard = () => {
             <tbody>
               {appointments.map((appointment) => (
                 <tr key={appointment._id}>
-                  <td>{appointment.patient.name}</td>
+                  <td>{appointment.patient?.name}</td>
                   <td>{formatDate(appointment.date)}</td>
                   <td>{appointment.medicalHistory}</td>
                   <td>{appointment.status}</td>
