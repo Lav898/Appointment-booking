@@ -36,7 +36,7 @@ const DoctorDashboard = () => {
 
   fetchAppointments();
   setDoctorInfo(myDoctorInfo); // Set the placeholder doctor info
-}, []);
+}, [myDoctorInfo]);
 
 
   const formatDate = (dateString) => {
