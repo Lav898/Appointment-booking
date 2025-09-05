@@ -16,7 +16,7 @@ const DoctorDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showProfile, setShowProfile] = useState(false);
-  const [doctorInfo, setDoctorInfo] = useState(myDoctorInfo);
+  const [doctorInfo] = useState(myDoctorInfo);
 
   useEffect(() => {
     const fetchAppointments = async () => {
