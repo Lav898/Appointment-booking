@@ -22,7 +22,7 @@ const DoctorDashboard = () => {
     const fetchAppointments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:5002/api/appointments/doctor', {
+        const res = await axios.get('https://hospital-qmyr.onrender.com/api/appointments/doctor', {
           headers: { 'x-auth-token': token }
         });
         setAppointments(res.data);

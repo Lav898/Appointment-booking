@@ -25,7 +25,7 @@ const RegisterPage = () => {
       return;
     }
     try {
-      await axios.post('http://localhost:5002/api/auth/register', formData);
+      await axios.post('https://hospital-qmyr.onrender.com/api/auth/register', formData);
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.msg || 'Registration failed. Please try again.');

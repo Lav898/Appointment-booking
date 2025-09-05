@@ -18,7 +18,7 @@ const AdminLoginPage = ({ setIsAuthenticated, setUserRole }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5002/api/auth/login', formData);
+      const res = await axios.post('https://hospital-qmyr.onrender.com/api/auth/login', formData);
       if (res && res.data && res.data.user.role === 'admin') {
         localStorage.setItem('token', res.data.token);
         localStorage.setItem('role', res.data.user.role);

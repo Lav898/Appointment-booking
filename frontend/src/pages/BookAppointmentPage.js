@@ -22,7 +22,7 @@ const BookAppointmentPage = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const res = await axios.get('http://localhost:5002/api/users/doctors');
+        const res = await axios.get('https://hospital-qmyr.onrender.com/api/users/doctors');
         setDoctors(res.data);
         setLoading(false);
       } catch (err) {
@@ -45,7 +45,7 @@ const BookAppointmentPage = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5002/api/appointments',
+        'https://hospital-qmyr.onrender.com/api/appointments',
         {
           doctorId: formData.doctorId,
           patientName: formData.patientName,
