@@ -45,7 +45,7 @@ const BookAppointmentPage = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'https://hospital-qmyr.onrender.com/api/appointments',
+        'https://appointment-booking-z8ed.onrender.com/api/appointments',
         {
           doctorId: formData.doctorId,
           patientName: formData.patientName,

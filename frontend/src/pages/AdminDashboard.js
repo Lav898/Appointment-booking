@@ -16,7 +16,7 @@ const AdminDashboard = () => {
             'x-auth-token': token,
           },
         };
-        const res = await axios.get('https://hospital-qmyr.onrender.com/api/admin/users', config);
+        const res = await axios.get('https://appointment-booking-z8ed.onrender.com/api/admin/users', config);
         setUsers(res.data);
         setLoading(false);
       } catch (err) {

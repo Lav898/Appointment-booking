@@ -12,7 +12,7 @@ const PatientDashboard = () => {
     const fetchAppointments = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('https://hospital-qmyr.onrender.com/api/appointments/patient', {
+        const res = await axios.get('https://appointment-booking-z8ed.onrender.com/api/appointments/patient', {
           headers: { 'x-auth-token': token }
         });
         setAppointments(res.data);
